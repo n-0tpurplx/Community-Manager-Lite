@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f14;
+  color: white;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.sub {
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #1a1a22;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #5865F2;
+  color: white;
+}
+
+button:disabled {
+  background: #333;
+  cursor: not-allowed;
+}
+
+.disabled {
+  opacity: 0.6;
+}
