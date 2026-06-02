@@ -1,0 +1,11 @@
+# dont ask i dont know what the fuck this is
+
+.env
+.env.*
+config.json
+secrets.json
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
