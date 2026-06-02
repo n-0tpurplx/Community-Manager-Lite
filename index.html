@@ -22,6 +22,30 @@
       <p id="authStatus">Status: Not logged in</p>
     </div>
 
+    <!-- NEW COMMAND SECTION -->
+    <div class="card">
+      <h2>Command Console</h2>
+
+      <button onclick="toggleCommandBox()">
+        Run Command
+      </button>
+
+      <div id="commandBox" style="display:none; margin-top:10px;">
+        <input
+          type="text"
+          id="commandInput"
+          placeholder="Enter command..."
+          style="padding:10px; width:80%;"
+        />
+
+        <button onclick="fakeRunCommand()">
+          Execute
+        </button>
+
+        <p id="commandStatus"></p>
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
