@@ -3,11 +3,10 @@ function loginWithDiscord() {
     "https://clm-backend-mi99.onrender.com/auth/discord";
 }
 
-// login status
+// Login status
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const status = document.getElementById("authStatus");
-
 
   if (!status) return;
 
@@ -22,19 +21,24 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// toggle command box
+// Show/hide command box
 function toggleCommandBox() {
   const box = document.getElementById("commandBox");
-  box.style.display = box.style.display === "none" ? "block" : "none";
+
+  if (box.style.display === "none") {
+    box.style.display = "block";
+  } else {
+    box.style.display = "none";
+  }
 }
 
-// REAL COMMAND SEND
-function fakeRunCommand() {
-  const input = document.getElementById("commandInput").value;
+// Send command to backend
+function runCommand() {
+  const command = document.getElementById("commandInput").value;
   const status = document.getElementById("commandStatus");
 
-  if (!input) {
-    status.innerText = "Enter a command";
+  if (!command.trim()) {
+    status.innerText = "Please enter a command.";
     status.style.color = "orange";
     return;
   }
@@ -45,21 +49,26 @@ function fakeRunCommand() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      command: input
+      command: command
     })
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      status.innerText = "Command sent ✔";
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+
+      if (data.error) {
+        status.innerText = "Failed: " + data.error;
+        status.style.color = "red";
+        return;
+      }
+
+      status.innerText = "Command sent!";
       status.style.color = "lime";
-    } else {
-      status.innerText = "Failed: " + data.error;
+    })
+    .catch(err => {
+      console.error(err);
+
+      status.innerText = "Request failed";
       status.style.color = "red";
-    }
-  })
-  .catch(() => {
-    status.innerText = "Network error";
-    status.style.color = "red";
-  });
+    });
 }
