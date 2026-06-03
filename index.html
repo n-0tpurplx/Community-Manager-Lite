@@ -6,42 +6,47 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container">
-<h1>Community Manager Lite</h1>
-<p class="sub">ERLC Control Panel (Prototype v0.1)</p>
-<div class="card">
-  <h2>Authentication</h2>
-  <button onclick="loginWithDiscord()">
-    Login with Discord
-  </button>
-  <p id="authStatus">Status: Not logged in</p>
-</div>
-<div class="card">
-  <h2>Command Console</h2>
-  <div class="quick-buttons">
-    <button onclick="setCommand(':h ')">Announce</button>
-    <button onclick="setCommand(':weather rain')">Rain</button>
-    <button onclick="setCommand(':weather clear')">Clear</button>
-    <button onclick="setCommand(':time 12:00')">Noon</button>
-    <button onclick="setCommand(':time 00:00')">Midnight</button>
+
+    <h1>Community Manager Lite</h1>
+    <p class="sub">ERLC Control Panel (Prototype v0.1)</p>
+
+    <div class="card">
+      <h2>Authentication</h2>
+
+      <button onclick="loginWithDiscord()">
+        Login with Discord
+      </button>
+
+      <p id="authStatus">Status: Not logged in</p>
+    </div>
+
+    <div class="card">
+      <h2>Command Console</h2>
+
+      <button onclick="toggleCommandBox()">
+        Run Command
+      </button>
+
+      <div id="commandBox" style="display:none; margin-top:10px;">
+        <input
+          type="text"
+          id="commandInput"
+          placeholder="Enter command..."
+          style="padding:10px; width:80%;"
+        />
+
+        <button onclick="runCommand()">
+          Execute
+        </button>
+
+        <p id="commandStatus"></p>
+      </div>
+    </div>
+
   </div>
-  <button onclick="toggleCommandBox()">
-    Run Command
-  </button>
-  <div id="commandBox" style="display:none; margin-top:15px;">
-    <input
-      type="text"
-      id="commandInput"
-      placeholder="Enter ERLC command..."
-    />
-    <br><br>
-    <button onclick="runCommand()">
-      Execute
-    </button>
-    <p id="commandStatus"></p>
-  </div>
-</div>
-  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
