@@ -36,11 +36,16 @@ button {
   color: white;
 }
 
-button:disabled {
-  background: #333;
-  cursor: not-allowed;
+button:hover {
+  opacity: 0.9;
 }
 
-.disabled {
-  opacity: 0.6;
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+#commandStatus {
+  margin-top: 10px;
 }
