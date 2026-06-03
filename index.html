@@ -26,6 +26,28 @@
     <div class="card">
       <h2>Command Console</h2>
 
+      <h2>Commands</h2>
+
+<div class="quick-buttons">
+  <button onclick="setCommand(':h ')">Announce</button>
+  <button onclick="setCommand(':weather rain')">Rain</button>
+  <button onclick="setCommand(':weather clear')">Clear</button>
+  <button onclick="setCommand(':time 12:00')">Noon</button>
+  <button onclick="setCommand(':time 00:00')">Midnight</button>
+</div>
+
+<input
+  type="text"
+  id="commandInput"
+  placeholder="Enter ERLC command..."
+>
+
+<button onclick="runCommand()">
+  Execute
+</button>
+
+<p id="commandStatus"></p>
+
       <button onclick="toggleCommandBox()">
         Run Command
       </button>
